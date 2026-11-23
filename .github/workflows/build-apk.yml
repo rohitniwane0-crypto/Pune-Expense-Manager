@@ -35,10 +35,11 @@ jobs:
 
       - name: Extract and build project
         run: |
-          unzip -q PuneExpenseManager_AndroidOnly_CloudBuild.zip
+          rm -rf PuneExpenseManagerAndroid
+          unzip -o -q PuneExpenseManager_AndroidOnly_CloudBuild.zip
           cd PuneExpenseManagerAndroid
           gradle assembleDebug
-
+          
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
