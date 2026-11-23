@@ -43,6 +43,9 @@ jobs:
             exit 1
           fi
           cd "$PROJECT_DIR"
+          
+          sed -i 's/JavaVersion.VERSION_1_8/JavaVersion.VERSION_17/g' app/build.gradle.kts
+          
           gradle assembleDebug
           
       - name: Upload APK
